@@ -1,18 +1,44 @@
 # Author: Diego Arturo Avila Torres <dandida95@gmail.com>
 
 project('testbenches',['c'],version: '0.1.0',
-	default_options: [],
+	default_options: [])
 
-)
-
-add_global_arguments(language:'c')
+add_global_arguments('-Wno-ignored-qualifiers',language:'c')
 c = meson.get_compiler('c')
+
+src = []
+
 
 # cflags
 c_args = []
 
-projectinc = [include_directories('.','include')]
+project_inc = [include_directories('.')]
 
-src = ['main.c']
 
-executable('main',src)
+
+# shared_libs
+
+shared_libs = []
+
+
+# dependencies
+
+project_deps = []
+
+subdir('include')
+
+subdir('src')
+
+
+
+# executables
+
+exec = []
+
+
+src += [files('main.c')]
+
+
+main = executable('main',['main.c'], include_directories: [project_inc], link_with: [shared_libs],link_language: 'c')
+
+exec += main

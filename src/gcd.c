@@ -1,6 +1,8 @@
-#include "gcd.h"
+#include "include/gcd.h"
+#include <stdio.h>
 
-int gcd_euclid(int a, int b) {
+
+int gcd_euclid(unsigned int a, unsigned int b) {
     while (b != 0) {
         int temp = b;
         b = a % b;
@@ -9,7 +11,7 @@ int gcd_euclid(int a, int b) {
     return a;
 }
 
-int binary_gcd(int a, int b) {
+int binary_gcd(unsigned int a, unsigned int b) {
     if (a == 0) return b;
     if (b == 0) return a;
 

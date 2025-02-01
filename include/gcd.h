@@ -1,5 +1,5 @@
 #pragma once
 
-int gcd_euclid(int a, int b);
+int gcd_euclid(unsigned int a, unsigned int b);
 
-int binary_gcd(int a, int b);
+int binary_gcd(unsigned int a, unsigned int b);
