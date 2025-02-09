@@ -4,10 +4,10 @@ sources = []
 
 project_inc += [include_directories('.')]
 
-sources += [files('gcd.c')]
 libgcd_src = [files('gcd.c')]
 libmd5_src = [files('md5.c')]
-sources += [libmd5_src]
+matrix_src = [files('matrix.c')]
+sources += [libmd5_src,libgcd_src,matrix_src]
 
 
 lib_gcd = shared_library('gcd',
@@ -24,10 +24,19 @@ install: true,
 dependencies: [project_deps]
 )
 
-# gcd_dep = declare_dependency(link_with: lib_gcd,required: true)
+lib_matrix = shared_library('matrix',
+sources: matrix_src,
+install: true,
+include_directories: [project_inc],
+dependencies: [project_deps]
+)
 
-shared_libs += [lib_gcd,lib_md5]
+gcd_dep = declare_dependency(link_with: lib_gcd)
+md5_dep = declare_dependency(link_with: lib_md5)
+matrix_dep = declare_dependency(link_with: lib_matrix)
 
-#project_deps += [gcd_dep]
+shared_libs += [lib_gcd,lib_md5,lib_matrix]
+
+project_deps += [gcd_dep,md5_dep,matrix_dep]
 
 src += sources

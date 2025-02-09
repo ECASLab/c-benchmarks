@@ -29,6 +29,7 @@ subdir('include')
 
 subdir('src')
 
+subdir('examples')
 
 
 # executables
@@ -36,9 +37,7 @@ subdir('src')
 exec = []
 
 
-src += [files('main.c')]
+# src += [files('main.c')]
 
 
-main = executable('main',['main.c'], include_directories: [project_inc], link_with: [shared_libs],link_language: 'c')
-
-exec += main
+#main = executable('main',['main.c'], include_directories: [project_inc], link_with: [shared_libs],link_language: 'c')
