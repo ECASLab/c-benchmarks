@@ -1,0 +1,17 @@
+repos:
+-   repo: https://github.com/pocc/pre-commit-hooks
+    rev: v1.3.5
+    hooks:
+    -   id: clang-format
+        args: [--style=google]
+    -   id: clang-format
+        args: [--filter=-build/include_order]
+    -   id: cpplint
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+    -   id: check-merge-conflict
+-   repo: https://github.com/jorisroovers/gitlint
+    rev: v0.17.0
+    hooks:
+    -   id: gitlint

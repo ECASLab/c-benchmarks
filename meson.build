@@ -50,3 +50,15 @@ exec = []
 
 
 #main = executable('main',['main.c'], include_directories: [project_inc], link_with: [shared_libs],link_language: 'c')
+
+developer_mode = get_option('developer-mode')
+profiling_mode = get_option('profiling-mode')
+if developer_mode
+  pre_commit = find_program('pre-commit', required: true, native: true)
+  run_command(pre_commit, 'install', check: false)
+  run_command(pre_commit, 'install', '--hook-type', 'commit-msg', check: false)
+endif
+
+if profiling_mode
+  c_args += ['-DPROFILE_MODE']
+endif
