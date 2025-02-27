@@ -3,11 +3,11 @@ repos:
     rev: v1.3.5
     hooks:
     -   id: clang-format
-        args: [--style=google]
-    -   id: clang-format
-        args: [--filter=-build/include_order]
+        args: [--style=file, --filter=-build/include_order]
     -   id: cpplint
--   repo: https://github.com/pre-commit/pre-commit-hooks
+        args: [--filter=-build/include_order, --exclude=third-party/*]
+        id: cppcheck
+    repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:
     -   id: check-merge-conflict

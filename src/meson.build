@@ -1,6 +1,7 @@
 # This file is part of the C Benchmarks project.
 # 
-# Licensed under the MIT License. See LICENSE file in the project root for full license information.
+# Licensed under the GPL v2.1 License. 
+# See LICENSE file in the project root for full license information.
 # 
 # Authors: 
 # Diego Avila <dandida95@gmail.com>
@@ -27,17 +28,17 @@ dependencies: [project_deps]
 )
 
 lib_md5 = shared_library('mcd',
-libmd5_src,
-include_directories: [project_inc],
-install: true,
-dependencies: [project_deps]
+    libmd5_src,
+    include_directories: [project_inc],
+    install: true,
+    dependencies: [project_deps]
 )
 
 lib_matrix = shared_library('matrix',
-sources: matrix_src,
-install: true,
-include_directories: [project_inc],
-dependencies: [project_deps]
+    sources: matrix_src,
+    install: true,
+    include_directories: [project_inc],
+    dependencies: [project_deps]
 )
 
 gcd_dep = declare_dependency(link_with: lib_gcd)

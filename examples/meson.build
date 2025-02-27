@@ -1,6 +1,7 @@
 # This file is part of the C Benchmarks project.
 # 
-# Licensed under the MIT License. See LICENSE file in the project root for full license information.
+# Licensed under the GPL v2.1 License. 
+# See LICENSE file in the project root for full license information.
 # 
 # Authors: 
 # Diego Avila <dandida95@gmail.com>
@@ -16,6 +17,6 @@ src += matrix_instance_src
 matrix_instance_exe = executable('matrix-instance-example',
 	matrix_instance_src,
 	include_directories: [project_inc],
-	c_args: ['-std=c23','--optimize=g','-mavx','-Ofast'],
+	c_args: ['-std=c2x','-mavx','-Ofast', c_args],
 	dependencies: [project_deps]
-	)
+)
