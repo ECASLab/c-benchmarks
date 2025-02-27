@@ -1,9 +1,18 @@
+#
+# See LICENSE for more information about licensing
+#  Copyright 2025
+#
 # Author: Diego Arturo Avila Torres <dandida95@gmail.com>
+#         Luis G. Leon Vega <luis.leon@ieee.org>
+#
+#
 
 project('testbenches',['c'],version: '0.1.0',
 	default_options: [])
 
-add_global_arguments('-Wno-ignored-qualifiers',language:'c')
+add_global_arguments('-Wno-ignored-qualifiers',
+	language:'c')
+
 c = meson.get_compiler('c')
 
 src = []

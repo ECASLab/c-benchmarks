@@ -1,4 +1,12 @@
-
+/*
+ * This file is part of the C Benchmarks project.
+ * 
+ * Licensed under the MIT License. See LICENSE file in the project root for full license information.
+ * 
+ * Authors: 
+ * Diego Avila <dandida95@gmail.com>
+ * Luis G. Leon Vega <luis.leon@ieee.org>
+ */
 
 #include "include/status.h"
 #include "include/matrix.h"
