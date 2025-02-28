@@ -1,11 +1,20 @@
 /*
-	Author: Diego Avila diego.avila@uned.cr
-*/
+ * This file is part of the C Benchmarks project.
+ *
+ * Licensed under the GPL v2.1 License. 
+ * See LICENSE file in the project root for full
+ * license information.
+ *
+ * Authors:
+ * Diego Avila <dandida95@gmail.com>
+ * Luis G. Leon Vega <luis.leon@ieee.org>
+ *
+ */
+
 #pragma once
 
 #include <stdint.h>
 #include <string.h>
-
 
 unsigned int leftRotate(unsigned int x, unsigned int n);
 
