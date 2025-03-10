@@ -6,12 +6,14 @@
 # Authors: 
 # Diego Avila <dandida95@gmail.com>
 # Luis G. Leon Vega <luis.leon@ieee.org>
+# Karin Porras Clarke <karinyume1293@gmail.com>
 #
 
 project_inc += [include_directories('.')]
 
 matrix_instance_src = [files('matrix_instance.c')]
 matrix_multiply_src = [files('matrix_multiply.c')]
+complex_vector_src = [files('complex_vector_instance.c')]
 
 src += matrix_instance_src
 src += matrix_multiply_src
@@ -25,6 +27,13 @@ matrix_instance_exe = executable('matrix-instance-example',
 
 matrix_multiply_exe = executable('matrix-multiply-example',
 	matrix_multiply_src,
+	include_directories: [project_inc],
+	c_args: ['-std=c2x','-mavx','-Ofast', c_args],
+	dependencies: [project_deps]
+)
+
+complex_vector_exe = executable('complex-vector-example',
+	complex_vector_src,
 	include_directories: [project_inc],
 	c_args: ['-std=c2x','-mavx','-Ofast', c_args],
 	dependencies: [project_deps]

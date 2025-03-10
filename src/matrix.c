@@ -8,14 +8,15 @@
  * Authors:
  * Diego Avila <dandida95@gmail.com>
  * Luis G. Leon Vega <luis.leon@ieee.org>
- *
+ * Karin Porras Clarke <karinyume1293@gmail.com>
+ * 
  */
 
 #include "include/matrix.h"
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <complex.h>
 #include "include/status.h"
 
 status int_matrix_alloc(int_matrix **input, size_t rows, size_t columns) {
@@ -29,7 +30,6 @@ status int_matrix_alloc(int_matrix **input, size_t rows, size_t columns) {
   }
 
   if (*input != NULL) {
-    printf("same");
     output.code = -1;
     output.message = "Object has already been assigned memory.";
     return output;
@@ -135,4 +135,40 @@ status int_matrix_multiplication(int_matrix **input1, int_matrix **input2,
   }
 
   return returned;
+}
+
+status complex_vector_alloc(complex_vector **input, size_t size) {
+  status output = {0, "OK"};
+
+  if (size <= 1) {
+    output.code = -1;
+    output.message = "Size only accepts positive integers greater than 1";
+    return output;
+  }
+  complex_vector *vector = (complex_vector *)malloc(sizeof(complex_vector));
+  vector->size = size;
+  vector->data = (complex double*)malloc(size*sizeof(complex double));
+  
+
+  if (vector->data == NULL) {
+    output.code = -1;
+    output.message = "NOT OK";
+    return output;
+  }
+  *input = vector;
+  return output;
+}
+
+status complex_vector_free(complex_vector **input) {
+  status output = {0, "OK"};
+
+  if (input == NULL) {
+    output.code = -1;
+    output.message = "Object has not been assigned memory.";
+    return output;
+  }
+
+  free((*input)->data);
+  free(*input);
+  return output;
 }
